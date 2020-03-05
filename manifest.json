@@ -9,7 +9,7 @@
         "default_popup": "popup.html"
     },
     "chrome_url_overrides" : {
-        "newtab": "newtab.html"
+        "newtab": "/newtab/newtab.html"
     },
     "permissions": ["activeTab"]
 }
