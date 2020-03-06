@@ -35,7 +35,7 @@ body {
 }
 
 .time {
-    font-size: 7.5rem;
+    font-size: 9.5rem;
 }
 
 .second-container {
@@ -52,7 +52,7 @@ body {
 }
 
 .animate-second {
-    animation: slideDownSecond 0.4s;
+    animation: slideDownSecond 0.6s;
 }
 
 .second, .next-second {
@@ -67,7 +67,7 @@ body {
 
 @keyframes slideDownSecond {
     from {top: 0rem;}
-    to {top: 2.2rem;}
+    to {top: 2.4rem;}
 }
 
 .date-container {
@@ -79,4 +79,10 @@ body {
 
 .date-container sup {
     font-size: 0.6rem;
+}
+
+@media only screen and (max-width: 800px) {
+    html {
+        font-size: 2vw;
+    }
 }

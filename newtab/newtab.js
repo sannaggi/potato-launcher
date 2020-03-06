@@ -2,9 +2,7 @@
     initBackgroundImage()
     initTime()
     initDate()
-
-    const secondSubContainer = document.getElementsByClassName('second-subcontainer')[0]
-    animateSeconds(secondSubContainer)
+    
 })()
 
 function initBackgroundImage() {
@@ -29,32 +27,51 @@ function initBackgroundImage() {
 function initTime() {
     const timeContainer = document.getElementsByClassName('time')[0]
     const secondContainer = document.getElementsByClassName('second')[0]
+    const nextSecondContainer = document.getElementsByClassName('next-second')[0]
     const secondSubContainer = document.getElementsByClassName('second-subcontainer')[0]
-    const INTERVAL = 100
+    const INTERVAL = 1000
 
-    printNewTime(timeContainer, secondContainer, secondSubContainer)
+    printNewTime(timeContainer, secondContainer, secondSubContainer, nextSecondContainer)
 
     setInterval(() => {
-        printNewTime(timeContainer, secondContainer, secondSubContainer)
+        printNewTime(timeContainer, secondContainer, secondSubContainer, nextSecondContainer)
     }, INTERVAL);
 }
 
-function printNewTime(timeContainer, secondContainer, secondSubContainer) {
+var animating = false
+
+function printNewTime(timeContainer, secondContainer, secondSubContainer, nextSecondContainer) {
     const date = new Date()
+    const oldSecond = secondContainer.innerHTML
+
     let hour = date.getHours() < 10 ? '0' + date.getHours() : date.getHours()
     let minute = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()
     let second = date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds()
 
     timeContainer.innerHTML = `${hour}:${minute}`
-    secondContainer.innerHTML = second
+    if (second != oldSecond && !animating) {
+        animating = true
+        animateSeconds(secondSubContainer, secondContainer, second, nextSecondContainer, setNotAnimating)
+    }
+
+    function setNotAnimating() {
+        animating = false
+    }
 }
 
-function animateSeconds(secondSubContainer) {
+function animateSeconds(secondSubContainer, secondContainer, newSecond, nextSecondContainer, callback) {
     const TIMEOUT = 400
     secondSubContainer.classList.toggle('animate-second')
+    nextSecondContainer.innerHTML = newSecond
+
     setTimeout(() => {
         secondSubContainer.classList.toggle('animate-second')
-    }, 400);
+        callback()
+    }, TIMEOUT);
+
+    setTimeout(() => {
+        secondContainer.innerHTML = newSecond
+    }, TIMEOUT / 2);
 }
 
 function initDate() {
