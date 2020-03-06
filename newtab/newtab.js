@@ -1,12 +1,15 @@
 (function() {
-    initBackgroundImage()
+    // CHANGE IMAGE COUNT HERE
+    // !! The image name provided in the images folder must be in correct order [1.jpg - n.jpg] !!s
+    const IMAGE_COUNT = 47
+
+    initBackgroundImage(IMAGE_COUNT)
     initTime()
     initDate()
-    
+
 })()
 
-function initBackgroundImage() {
-    const IMAGE_COUNT = 47
+function initBackgroundImage(IMAGE_COUNT) {
     const image_paths = []
 
     for (let i = 1; i <= IMAGE_COUNT; i++) {
