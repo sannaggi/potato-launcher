@@ -1,0 +1,46 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans';
+    min-width: 250px;
+    padding: 0.5rem 1rem;
+    animation: fade 1.6s forwards;
+}
+
+header {
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+}
+
+.header-border {
+    height: 3px;
+    background-color: rgb(9, 28, 60);
+    margin-top: 0.5em;
+    animation: border-expand 0.8s forwards;
+}
+
+@keyframes border-expand {
+    from {width: 0%;}
+    to {width: 50%;}
+}
+
+.logo {
+    width: 25px;
+    margin-right: 5px;
+}
+
+main {
+    padding: 1em 0 1em 0;
+    font-size: 1.25rem;
+    text-align: center;
+}
+
+@keyframes fade {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}

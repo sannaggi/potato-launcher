@@ -6,7 +6,7 @@
 })()
 
 function initBackgroundImage() {
-    const IMAGE_COUNT = 3
+    const IMAGE_COUNT = 47
     const image_paths = []
 
     for (let i = 1; i <= IMAGE_COUNT; i++) {
@@ -14,13 +14,19 @@ function initBackgroundImage() {
     }
     
     const background = document.getElementsByClassName('background-image')[0]
-    let index = 0
+    let index = parseInt(Math.random() * IMAGE_COUNT)
     const INTERVAL = 10000
     
     background.style.backgroundImage = `url(${image_paths[index]})`
 
     setInterval(() => {
-        background.style.backgroundImage = `url(${image_paths[(index += 1) % IMAGE_COUNT]})`
+        let newIndex = 0
+        do {
+            newIndex = parseInt(Math.random() * IMAGE_COUNT)
+        } while(index == newIndex)
+
+        index = newIndex
+        background.style.backgroundImage = `url(${image_paths[index]})`
     }, INTERVAL)
 }
 
@@ -85,7 +91,7 @@ function initDate() {
 function getCurrentDateString() {
     const date = new Date()
     const currentDate = date.getDate()
-    return `${getCurrentDay(date)}, ${getCurrentMonth(date)} ${currentDate}`
+    return `${getCurrentDay(date)} - ${getCurrentMonth(date)} ${currentDate}`
 }
 
 function getExtra() {
