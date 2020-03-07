@@ -1,7 +1,7 @@
 (function() {
     // CHANGE IMAGE COUNT HERE
     // !! The image name provided in the images folder must be in correct order [1.jpg - n.jpg] !!s
-    const IMAGE_COUNT = 47
+    const IMAGE_COUNT = 43
 
     initBackgroundImage(IMAGE_COUNT)
     initTime()
@@ -101,12 +101,11 @@ function getExtra() {
     const currentDate = new Date().getDate()
     if (currentDate % 10 > 3 || currentDate / 10 == 1)
         return 'th'
-    else if (currentDate % 10 == 1)
-        return'st'
-    else if (currentDate % 10 == 2)
+    if (currentDate % 10 == 1)
+        return 'st'
+    if (currentDate % 10 == 2)
         return 'nd'
-    else
-        return 'rd'
+    return 'rd'
 }
 
 function getCurrentDay(date) {
