@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+a {
+    color: inherit;
+}
+
 body {
     font-family: 'Open Sans';
     min-width: 250px;
@@ -24,11 +28,6 @@ header {
     animation: border-expand 0.8s forwards;
 }
 
-@keyframes border-expand {
-    from {width: 0%;}
-    to {width: 50%;}
-}
-
 .logo {
     width: 25px;
     margin-right: 5px;
@@ -40,7 +39,28 @@ main {
     text-align: center;
 }
 
+footer {
+    padding: 0.25rem 0.5rem 0 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icon {
+    font-size: 2rem;
+}
+
+.icon:hover {
+    opacity: 0.6;
+    transition: opacity 0.3s;
+}
+
 @keyframes fade {
     from {opacity: 0;}
     to {opacity: 1;}
+}
+
+@keyframes border-expand {
+    from {width: 0%;}
+    to {width: 50%;}
 }
