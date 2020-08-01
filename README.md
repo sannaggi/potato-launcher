@@ -15,7 +15,3 @@ git clone https://github.com/sannaggi/potato-launcher
 4. Enable the developer mode
 5. Click the "Load unpacked" button and select the *potato-launcher* folder
 6. **Done!** You can try to open a new tab and start using it to your heart's content~
-
-## Contributors
-- [sannaggi](https://github.com/sannaggi)
-- [SlayneLi](https://github.com/SlayneLi)
